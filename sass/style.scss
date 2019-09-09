@@ -1,0 +1,186 @@
+//	normalize
+html{font-family: PingFangSC, Microsoft JhengHei, sans-serif; -ms-text-size-adjust:100%; -webkit-text-size-adjust:100%;}
+body{margin:0;}
+article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block;}
+audio,canvas,progress,video{display:inline-block; vertical-align:baseline;}
+audio:not([controls]){display:none;height:0;}
+[hidden],template{display:none;}
+a{background-color:transparent;}
+a:active,a:hover{outline:0;}
+abbr[title]{border-bottom:1px dotted;}
+b,strong{font-weight:bold;}
+dfn{font-style:italic;}
+h1{font-size:2em;margin:0.67em 0;}
+mark{background:#ff0;color:#000;}
+small{font-size:80%;}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}
+sup{top:-0.5em;}
+sub{bottom:-0.25em;}
+img{border:0;}
+svg:not(:root){overflow:hidden;}
+figure{margin:1em 40px;}
+hr{box-sizing:content-box;height:0;}
+pre{overflow:auto;}
+code,kbd,pre,samp{font-family:monospace, monospace;font-size:1em;}
+button,input,optgroup,select,textarea{color:inherit; font:inherit; margin:0;}
+button{overflow:visible;}
+button,select{text-transform:none;}
+button,html input[type="button"], 
+input[type="reset"],input[type="submit"]{-webkit-appearance:button; cursor:pointer;}
+button[disabled],html input[disabled]{cursor:default;}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+input{line-height:normal;}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box; padding:0;}
+input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto;}
+input[type="search"]{-webkit-appearance:textfield; box-sizing:content-box;}
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}
+fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em;}
+legend{border:0; padding:0;}
+textarea{overflow:auto;}
+optgroup{font-weight:bold;}
+table{border-collapse:collapse;border-spacing:0;}
+td,th{padding:0;}
+
+// style
+body {
+    width: 100vw;
+    height: 100%;
+    position: fixed;
+    overflow: hidden;
+    background-color: #d1b68f;
+}
+
+header {
+    position: fixed;
+    width: 100vw;
+    height: 50px;
+    line-height: 50px;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: #222;
+    text-align: center;
+    color: #f0e0bd;
+    border-bottom: 1px solid #f0e0bd;
+    box-shadow: 0 2px 5px rgba(#000, .6);
+    .name {
+        height: 40px;
+        position: relative;
+        margin: 5px auto;
+        img {
+            height: 100%;
+        }
+    }
+    .btn-bk {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        img {
+            display: block;
+            height: 70%;
+            margin: 15%;
+        }
+    }
+}
+
+.cont {
+    padding: 50px 0 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.banner {
+    width: 100vw;
+    img {
+        width: 100%;
+        display: block;
+    }  
+}
+
+main {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.game-type-mx,
+.game-type,
+.play-type {
+    border-radius: 10px;
+    background-color: #000;
+    height: calc(25vw - 12.5px);
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: .1s;
+    box-shadow: 0 1px 3px rgba(#000, .8), 0 2px 10px rgba(#000, .4);
+    img {
+        width: 100%;
+    }
+}
+// .game-type,
+// .play-type {
+//     &:hover,
+//     &:active {
+//         transform: translateY(2px);
+//     }
+// }
+.game-type-mx,
+.game-type {
+    width: 100%;
+}
+.play-type {
+    width: calc(25vw - 12.5px);
+}
+
+.gamepage {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    padding-top: 50px;
+    transition: .2s ease;
+    transform: translateY(-200%) scale(0.3);
+    &.mx-game {
+        transition: 0s;  
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    .mx-menu {
+        position: absolute;
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: flex-start;
+        top: 80px;
+        left: 0;
+        z-index: 2;
+        .mx-item {
+            width: 22.35%;
+            height: 100%;
+            display: block;
+        }
+    }
+    .auto {
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        img {
+            height: auto;
+        }
+    }
+    &.show {
+        transform: translateY(0%) scale(1);
+    }
+}

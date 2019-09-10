@@ -28,6 +28,8 @@
         <div class="game-type play-type mx-02" gametype="mx-02"><img src="img/b-mx-02.jpg"></div>
         <div class="game-type play-type mx-03" gametype="mx-03"><img src="img/b-mx-03.jpg"></div>
         <div class="game-type play-type mx-04" gametype="mx-04"><img src="img/b-mx-04.jpg"></div>
+
+        <div class="game-type live" gametype="live"><img src="img/b-live.jpg"></div>
     
         <div class="game-type esport" gametype="esport"><img src="img/b-esport.jpg"></div>
         
@@ -95,6 +97,14 @@
         <img src="img/mx-inner.jpg">
     </div>
     
+    <div class="gamepage live">
+        <div class="auto"><img src="img/live-list.jpg"></div>
+    </div>
+
+    <div class="gamepage live-inner">
+        <img src="img/live-inner.jpg">
+    </div>
+    
     <div class="gamepage sport">
         <img src="img/sport.jpg">
     </div>
@@ -147,6 +157,11 @@ $(document).ready(function(){
 
     $('.gamepage.egame, .egame-item').click(function(){
         $('.gamepage.egame-inner').addClass('show');
+        $('header .btn-bk').show();
+    });
+
+    $('.gamepage.live').click(function(){
+        $('.gamepage.live-inner').addClass('show');
         $('header .btn-bk').show();
     });
 

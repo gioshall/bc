@@ -1,0 +1,66 @@
+@import "lesshat";
+
+.psa(@top: null, @right: null, @bottom: null, @left: null, @zindex: null){
+    position: absolute;
+    top: @top;
+    right: @right;
+    bottom: @bottom;
+    left: @left;
+    z-index: @zindex;
+}
+.psf(@top: null, @right: null, @bottom: null, @left: null, @zindex: null){
+    position: fixed;
+    top: @top;
+    right: @right;
+    bottom: @bottom;
+    left: @left;
+    z-index: @zindex;
+}
+.psr(@top: null, @right: null, @bottom: null, @left: null, @zindex: null){
+    position: relative;
+    top: @top;
+    right: @right;
+    bottom: @bottom;
+    left: @left;
+    z-index: @zindex;
+}
+.bg-cover(@position: center){
+    background-position: @position;
+    .background-size(cover);
+}
+.bg-contain(@position: center){
+    background-position: @position;
+    .background-size(contain);
+}
+.one-line-only(){
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.dis-one-line-only(){
+    overflow: hidden;
+    text-overflow:clip;
+    white-space: normal;
+}
+.keyframes(@name,@rules) {
+
+    @-webkit-keyframes @name {
+        @rules();
+    }
+
+    @-moz-keyframes @name {
+        @rules();
+    }
+
+    @-ms-keyframes @name {
+        @rules();
+    }
+
+    @-o-keyframes @name {
+        @rules();
+    }
+
+    @keyframes @name {
+        @rules();
+    }
+}

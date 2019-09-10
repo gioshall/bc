@@ -1,0 +1,137 @@
+@import "lesshat";
+@ease: cubic-bezier(.38,.24,.28,1.17);
+// <label for='primary' class='switch'>
+//       <input class='switch-input' type="checkbox" id='primary'/>
+//       <div class="switch-box">
+//             <span class="switch-box-inner"></span>
+//       </div>
+// </label>
+.switch {
+	position: relative;	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	border-radius: 50px;
+    &-input {
+        opacity: 0;
+        visibility: hidden;
+        width: 1px;
+        height: 1px;
+        background-color: transparent;
+        pointer-events: none;
+        position: absolute;
+    }
+    &-box {
+        padding: 3px;
+        border-radius: 100px;
+        position: relative;
+        height: 24px;
+        width: 100%;
+        background-color: #564a42;
+        box-shadow: 0 0 10px transparent;
+        transition: 0.4s all @ease;
+		 overflow: hidden;
+		 &::before {
+			content: '';
+			width: ~'calc(60% + 15px)';
+			height: 110%;
+			position: absolute;
+			top: -5%;
+			left: -10%;
+			border-radius: 100px;
+			transition: .3s ease all;
+			will-change: transform, border-radius;
+		 }
+        &-inner {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 18px;
+            height: 18px;
+            border-radius: 100px;
+            background-color: white;
+            box-shadow: 0 4px 20px rgba(255,255,255, .2);
+            transition: 0.4s all @ease;
+            overflow: hidden;
+            &::after {
+                content: '';
+                height: 4px;
+                width: 4px;
+                border-radius: 10px;
+                top: 8px;
+                left: 8px;
+                position: absolute;
+                transform: translateX(-40px);
+            }
+        }
+    }
+    &-input:checked ~ &-box > &-box-inner {
+        animation: checkSwitch .4s @ease forwards;
+        &::after {
+            animation: checkSwitchAfter .4s @ease .2s forwards;
+            background-color: rgba(0,0,0,0, .6);
+        }
+    }
+
+    &-input:not(:checked) ~ &-box > &-box-inner {
+        animation: unCheckSwitch .4s @ease forwards;
+        &::after {
+            animation: unCheckSwitchAfter .4s @ease forwards;
+        }
+    }
+	
+	&-input:checked ~ &-box {
+		box-shadow: 0 8px 12px rgba(0,0,0,0, .1);
+		&::before {
+			left: ~'calc(50% - 15px)';
+			border-radius: 20px;
+		}
+	}
+	
+	&-box::before {
+    	background-color: #5867dd;
+	}
+	&-desc {
+		margin-left: 24px;
+	}
+
+}
+
+@keyframes checkSwitch {
+    0% {
+    }
+    50% {
+        width: 36px;
+    }
+    100% {
+        width: 20px;
+    }
+}
+
+@keyframes checkSwitchAfter {
+    from {
+        transform: scale(.2);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+@keyframes unCheckSwitchAfter {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(.2);
+    }
+}
+@keyframes unCheckSwitch {
+    0% {
+        width: 20px;
+    }
+    50% {
+        width: 36px;
+    }
+    100% {
+    }
+}
